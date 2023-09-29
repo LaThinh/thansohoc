@@ -7,7 +7,7 @@ function HomePage() {
   return (
     <div className="home-page flex flex-col flex-1 justify-center items-center h-full">
       <BackgroundAnimation />
-      <div className="flex flex-1 items-center relative z-30 p-4 lg:p-5">
+      <div className="flex flex-1 items-center relative z-50">
         <FormCard />
       </div>
     </div>

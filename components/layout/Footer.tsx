@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="footer relative z-30 bg-primary-foreground border-t py-3 px-5 lg:py-5 min-h-[64px] flex flex-col justify-center">
+    <footer className="footer relative z-30 bg-primary-foreground border-t py-3 px-5 lg:py-5 h-[64px] flex flex-col justify-center">
       <div className="footer-container container text-center">
         Copyright @2024 by Thần Số Học
       </div>

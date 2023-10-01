@@ -3,6 +3,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import Menu from "./Menu";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 function Header() {
   // const ThemeToggle = dynamic(
@@ -12,14 +13,21 @@ function Header() {
   // ) as any;
 
   return (
-    <header className="header sticky z-50 width-full bg-primary-foreground p-3 lg:px-5">
-      <div className="header-container max-w-7xl m-auto flex justify-between items-center">
+    <header className="header sticky z-50 width-full bg-primary-foreground">
+      <div className="header-container max-w-7xl m-auto flex justify-between items-center px-5 h-16">
         <div className="logo">
           <Link href="/" className="text-xl font-bold">
-            Logo
+            <Image
+              src="/Logo-ThanSoHoc.png"
+              alt="Thần Số Học"
+              width="240"
+              height="50"
+              style={{ objectFit: "cover" }}
+              className="max-h[50px] overflow-hidden"
+            />
           </Link>
         </div>
-        <div className="navigation-menu hidden lg:flex">
+        <div className="navigation-menu hidden md:flex">
           <Menu />
         </div>
 

@@ -35,7 +35,7 @@ function BackgroundAnimation() {
             value: "#881337",
           },
         },
-        fpsLimit: 40,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {
@@ -50,7 +50,7 @@ function BackgroundAnimation() {
           },
           modes: {
             push: {
-              quantity: 4,
+              quantity: 5,
             },
             repulse: {
               distance: 200,
@@ -60,7 +60,7 @@ function BackgroundAnimation() {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: "#fef9c3",
           },
           links: {
             color: "#ffffff",

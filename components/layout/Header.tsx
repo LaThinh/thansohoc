@@ -13,7 +13,7 @@ function Header() {
   // ) as any;
 
   return (
-    <header className="header sticky z-50 width-full bg-primary-foreground">
+    <header className="header sticky top-0 z-50 shadow-md width-full bg-primary-foreground">
       <div className="header-container max-w-7xl m-auto flex justify-between items-center px-5 h-16">
         <div className="logo">
           <Link href="/" className="text-xl font-bold">

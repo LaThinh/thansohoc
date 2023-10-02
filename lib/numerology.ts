@@ -1,3 +1,6 @@
+import { INumerologyIndex } from "@/app/interfaces";
+import { NumerologyIndex } from "./constants";
+
 export interface IMainNumber {
   main_number: number;
   steps: string[];
@@ -59,4 +62,14 @@ function convertStrToNumber(str: string): number {
   }
   console.log(result);
   return result;
+}
+
+function findNumerologyIndexBySlug(slug: string) {
+  // return array.find((element) => {
+  //   return element.title === title;
+  // })
+
+  return NumerologyIndex.find((element) => {
+    return element.name === slug;
+  });
 }

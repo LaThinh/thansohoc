@@ -1,3 +1,5 @@
+import { INumerologyIndex } from "@/app/interfaces";
+
 export const components: {
   title: string;
   href: string;
@@ -40,19 +42,14 @@ export const components: {
   },
 ];
 
-export const NumerologyIndex: {
-  id: string;
-  name: string;
-  title_vn: string;
-  title_en?: string;
-  description?: string;
-}[] = [
+export const NumerologyIndex: INumerologyIndex[] = [
   {
     id: "1",
     name: "path-of-line",
     title_vn: "Đường đời",
     title_en: "Path of line",
-    description: "Chỉ số đường đời",
+    description:
+      "Con Số Đường Đời là chỉ số được tính từ ngày sinh đầy đủ của bạn và được gọi là Con Số Life Path. Đây là một trong những con số cốt yếu của Thần Số Học. \n Con Số Đường Đời mô tả những tính chất vốn dĩ tự nhiên ở bạn cũng như những tính chất ẩn sâu bên trong con người bạn. \n Nó tiết lộ cho bạn biết bạn là ai ngay thời điểm vừa mới chào đời cũng như những đặc điểm mà bạn sẽ mang theo trong suốt hành trình cuộc đời của mình.",
   },
   {
     id: "2",

@@ -17,10 +17,14 @@ function IndexList({ indexList }: { indexList?: INumerologyIndex[] }) {
             {IndexList.map((item, index) => (
               <Link
                 href={`/numIndex/${item.name}/${item?.value || item.id}`}
-                className="index-item border rounded-2xl shadow-sm bg-white hover:bg-slate-100 py-5 px-3 flex flex-col gap-2 aspect-square items-center"
+                className="index-item  border rounded-2xl shadow-sm bg-white hover:bg-slate-100 p-5 flex flex-col gap-2 
+                aspect-square box-border items-center"
                 key={index}
+                title={`Xem chi tiết Chỉ số ${item.title_vn} giá trị ${
+                  item?.value || item.id
+                }`}
               >
-                <h4 className="text-xl font-semibold text-primary line-clamp-1 capitalize">
+                <h4 className="text-xl font-semibold text-primary line-clamp-1 capitalize dark:text-slate-700">
                   {item.title_vn}
                 </h4>
                 <h5 className="text-base text-gray-500 line-clamp-1 capitalize">

@@ -19,6 +19,10 @@ function NumerologyIndexDetailPage({
       <h1 className="page-title">
         Chỉ số {NumerologyInfo?.title_vn} giá trị {params.value}
       </h1>
+      <p>
+        Diễn giải thông tin Chỉ số {NumerologyInfo?.title_vn} giá trị{" "}
+        {params.value}{" "}
+      </p>
     </div>
   );
 }

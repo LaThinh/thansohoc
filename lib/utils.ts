@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function replaceWithBr(strText: string) {
-  return strText.replace(/\n/g, "<br />");
+  return strText.replace(/\n/g, "<br /><br />");
 }
 
 export function replaceWithP(strText: string) {

@@ -4,4 +4,5 @@ export interface INumerologyIndex {
   title_vn: string;
   title_en?: string;
   description?: string;
+  value?: number;
 }

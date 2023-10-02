@@ -1,6 +1,7 @@
 "use client";
 import FormCard from "@/components/FormCard";
 import NumberAnimation from "@/components/NumberAnimation";
+import IndexList from "@/components/numerology/IndexList";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { DataSoChuDao } from "@/lib/data-sochudao";
 import { CalcMainNumber, IMainNumber } from "@/lib/numerology";
@@ -119,6 +120,13 @@ function NumerologyByName() {
             </animated.div>
           )}
         </div>
+
+        <animated.div
+          className="number-description relative w-full p-10 lg:p-12 bg-white/80 dark:bg-slate-500/70 rounded-xl shadow-sm text-lg"
+          style={styleDesc}
+        >
+          <IndexList />
+        </animated.div>
       </div>
     </div>
   );

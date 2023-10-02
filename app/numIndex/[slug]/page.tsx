@@ -1,6 +1,7 @@
 import React from "react";
 import { NumerologyIndex } from "@/lib/constants";
-import { replaceWithBr } from "@/lib/utils";
+import { replaceWithBr, replaceWithP } from "@/lib/utils";
+import IndexList from "@/components/numerology/IndexList";
 
 function findNumerologyBySlug(slug: string) {
   return NumerologyIndex.find((element) => {
@@ -17,12 +18,16 @@ function NumerologyIndexPage({ params }: { params: { slug: string } }) {
       </h1>
 
       {/* <p>{NumerologyInfo?.description}</p> */}
-      <p
-        className="my-5 [&>br]:mb-4"
-        dangerouslySetInnerHTML={{
-          __html: replaceWithBr(NumerologyInfo?.description || ""),
-        }}
-      />
+      <div className="page-container m-auto max-w-7xl">
+        <p
+          className="my-5 [&>p]:mb-4"
+          dangerouslySetInnerHTML={{
+            __html: replaceWithBr(NumerologyInfo?.description || ""),
+          }}
+        />
+
+        <IndexList />
+      </div>
     </div>
   );
 }

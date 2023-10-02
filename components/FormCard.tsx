@@ -36,6 +36,8 @@ import {
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { NavigationMenu } from "@radix-ui/react-navigation-menu";
 
 const formSchema = z.object({
   name: z
@@ -47,15 +49,18 @@ const formSchema = z.object({
   birthday: z.any(),
 });
 
-function FormCard({ name, birthday }: { name?: string; birthday?: string }) {
-  const [date, setDate] = React.useState<Date>();
+function FormCard() {
   const router = useRouter();
   const { toast } = useToast();
 
+  const [fullName, setFullName] = useLocalStorage("fullName", "");
+  const [dateOfBirth, setDateOfBirth] = useLocalStorage("birthday", "");
+  const [date, setDate] = React.useState<Date>();
+
   React.useEffect(() => {
-    if (birthday) {
+    if (dateOfBirth) {
       try {
-        const strDate = birthday.split("-");
+        const strDate = dateOfBirth.split("-");
         const defaultDate: any = Date.parse(
           strDate[2] + "-" + strDate[1] + "-" + strDate[0]
         );
@@ -69,8 +74,8 @@ function FormCard({ name, birthday }: { name?: string; birthday?: string }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      birthday: null,
+      name: fullName,
+      birthday: date,
     },
   });
 
@@ -89,11 +94,40 @@ function FormCard({ name, birthday }: { name?: string; birthday?: string }) {
     });
   }
 
+  //initDefaultValue();
+
+  function initDefaultValue() {
+    console.log("initDefaultValue" + fullName);
+    try {
+      //const storeName = fullName;
+      //setCurrentName(fullName);
+      //setBirthday(dateOfBirth);
+      if (dateOfBirth) {
+        console.log("dateOfBirthhhhhhhhh");
+        try {
+          const strDate = dateOfBirth.split("-");
+          const defaultDate: any = Date.parse(
+            strDate[2] + "-" + strDate[1] + "-" + strDate[0]
+          );
+          setDate(defaultDate);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      console.log("Set value Default from Local storage");
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     // ✅ This will be type-safe and validated.
     values.birthday = date?.toString() ? format(date, "dd-MM-yyyy") : "";
     console.log(values);
     showToast(values);
+
+    setFullName(values.name);
+    setDateOfBirth(values.birthday);
 
     router.push(
       `/analyze-name?name=${values.name}&birthday=${values.birthday}`
@@ -126,8 +160,8 @@ function FormCard({ name, birthday }: { name?: string; birthday?: string }) {
                     <Input
                       placeholder="Họ tên của bạn"
                       {...field}
-                      value={name}
-                      defaultValue={name}
+                      //value={fullName}
+                      //defaultValue={fullName}
                     />
                   </FormControl>
                   <FormMessage />

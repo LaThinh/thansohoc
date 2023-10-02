@@ -1,9 +1,8 @@
 import React from "react";
 import { NumerologyIndex } from "@/lib/constants";
-import { findNumerologyIndexBySlug } from "@/lib/numerology";
 import { replaceWithBr } from "@/lib/utils";
 
-export function findNumerologyBySlug(slug: string) {
+function findNumerologyBySlug(slug: string) {
   return NumerologyIndex.find((element) => {
     return element.name === slug;
   });

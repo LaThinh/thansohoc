@@ -1,6 +1,6 @@
 import {sumDigit} from "@/lib/utils/sumDigit";
 import {DateOfBirth} from "@/lib/dob";
-import {expression} from "../main/expression";
+import {expression} from "@/lib/index/main";
 import {lifePath} from "../main/lifePath";
 
 export function maturity(name: string, dobObject: DateOfBirth): number {

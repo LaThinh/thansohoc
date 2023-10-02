@@ -1,17 +1,27 @@
 import {sumDigit} from "@/lib/utils/sumDigit";
 import {alphabetValues, DataVowels} from "@/lib/data/alphabet";
 import {getYValue} from "@/lib/utils/getYValue";
+import {addKarmicNumber} from "@/lib/utils/karmicDebt";
 
 export function soulUrge(name: string): number {
-    let total = 0;
+    const total = name
+        .split(/\s+/)
+        .map(namePart => {
+            let subTotal = 0;
 
-    for (let i = 0, length = name.length; i < length; i++) {
-        const char = name[i];
-        if (char === 'Y') {
-            total += getYValue(name, i);
-        } else if (DataVowels.has(char)) {
-            total += alphabetValues.get(char) || 0;
-        }
-    }
+            for (let i = 0, length = namePart.length; i < length; i++) {
+                const char = namePart[i];
+
+                if (char === 'Y') {
+                    subTotal += getYValue(namePart, i);
+                } else if (DataVowels.has(char)) {
+                    subTotal += alphabetValues.get(char) || 0;
+                }
+            }
+            addKarmicNumber(subTotal);
+
+            return subTotal;
+        }).reduce((runningTotal, subTotal) => runningTotal + subTotal, 0);
+
     return sumDigit(total, true);
 }

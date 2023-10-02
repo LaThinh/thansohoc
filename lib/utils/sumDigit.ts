@@ -1,6 +1,11 @@
-import {masterNumber} from "@/lib/data/masterNumber";
+import { masterNumber } from "@/lib/data/masterNumber";
+import { karmicDebtNumber } from "@/lib/data/karmicDebtNumber";
+import { addKarmicNumber } from './karmicDebt';
 
 export function sumDigit(number: number, checkIsMaster = false): number {
+   if (karmicDebtNumber.has(number) && checkIsMaster) {
+      addKarmicNumber(number);
+   }
    if (masterNumber.has(number) && checkIsMaster) {
       return number;
    }

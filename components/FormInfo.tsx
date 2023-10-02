@@ -1,3 +1,5 @@
+//"use client";
+
 import useLocalStorage from "@/hooks/useLocalStorage";
 import React, { useState } from "react";
 import { Input } from "./ui/input";
@@ -32,7 +34,13 @@ const formSchema = z.object({
   birthday: z.any(),
 });
 
-function FormInfo({}) {
+function FormInfo({
+  name,
+  birthday,
+}: {
+  name: string | null;
+  birthday: string | null;
+}) {
   const [fullName, setFullName] = useLocalStorage("fullName", "");
   const [dateOfBirth, setDateOfBirth] = useLocalStorage("birthday", "");
   const [date, setDate] = React.useState<Date>();
@@ -92,8 +100,8 @@ function FormInfo({}) {
   }
 
   return (
-    <div className="form-info md:sticky top-[64px] py-2 px-5 bg-gray-300 shadow-lg z-[100]">
-      <div className="form-info m-auto w-full max-w-[400px] md:max-w-3xl flex gap-5">
+    <div className="form-info md:sticky top-[64px] py-2 px-5 bg-gray-300 shadow-lg z-[10]">
+      <div className="form-info m-auto w-full max-w-[400px] md:max-w-5xl flex gap-5">
         {editMode ? (
           <Form {...form}>
             <form
@@ -171,9 +179,17 @@ function FormInfo({}) {
                 )}
               />
 
-              <div className="form-submit">
+              <div className="form-submit flex gap-3">
                 <Button type="submit" variant={"default"}>
                   Update
+                </Button>
+                <Button
+                  variant={"ghost"}
+                  onClick={() => {
+                    setEditMode(!editMode);
+                  }}
+                >
+                  Cancel
                 </Button>
               </div>
             </form>
@@ -182,15 +198,17 @@ function FormInfo({}) {
           <div className="form-info w-full flex gap-2 justify-between">
             <div className="form-field flex gap-2 items-center">
               <Label htmlFor="fullName">Họ Tên:</Label>
-              <strong>{fullName}</strong>
+              <strong>{name}</strong>
             </div>
             <div className="form-field flex gap-2 items-center">
               <Label htmlFor="fullName">Ngày Sinh:</Label>
-              <strong>{dateOfBirth}</strong>
+              <strong>{birthday}</strong>
             </div>
-            <Button variant={"ghost"} onClick={() => setEditMode(!editMode)}>
-              Edit
-            </Button>
+            <div>
+              <Button variant={"ghost"} onClick={() => setEditMode(!editMode)}>
+                Edit
+              </Button>
+            </div>
           </div>
         )}
       </div>

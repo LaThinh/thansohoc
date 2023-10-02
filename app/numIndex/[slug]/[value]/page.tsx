@@ -15,7 +15,11 @@ function NumerologyIndexDetailPage({
 }) {
   const NumerologyInfo = findNumerologyBySlug(params.slug);
   return (
-    <div className="page-wrapper page-numerology-index p-5 lg:p-10">
+    <div
+      className="page-wrapper page-numerology-index p-5 lg:p-10
+    bg-[url('/unsplash-01.jpg')]
+    "
+    >
       <h1 className="page-title">
         Chỉ số {NumerologyInfo?.title_vn} giá trị {params.value}
       </h1>

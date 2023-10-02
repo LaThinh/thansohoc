@@ -1,6 +1,6 @@
 "use client";
-import FormCard from "@/components/FormCard";
-import FormInfo from "@/components/FormInfo";
+//import FormCard from "@/components/FormCard";
+//import FormInfo from "@/components/FormInfo";
 import NumberAnimation from "@/components/NumberAnimation";
 import IndexList from "@/components/numerology/IndexList";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -16,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { DataSoChuDao } from "@/lib/data-sochudao";
 import { CalcMainNumber, IMainNumber } from "@/lib/numerology";
 import { useSpring, animated } from "@react-spring/web";
+import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import React, { memo, useEffect, useState } from "react";
 
@@ -57,15 +58,20 @@ function NumerologyByName() {
     }
   }, [birthday, loading]);
 
+  const FormInfo = dynamic(() => import("@/components/FormInfo"), {
+    ssr: false,
+  });
+
   return (
     <>
-      <FormInfo />
+      <FormInfo name={fullName} birthday={birthday} />
       <div
-        className="search-by-name flex flex-col gap-5 p-5 lg:p-10 
-        min-h-[90vh] bg-gradient-to-tr from-rose-400 to-orange-300"
+        className="search-by-name flex flex-col gap-5 p-5 lg:p-10 min-h-[90vh]         
+        bg-[url('/Number-7.jpg')] bg-fixed"
+        // bg-gradient-to-tr from-rose-400 to-orange-300
       >
-        <h1 className="page-title">Thần số học theo Tên</h1>
-        <Card className="m-auto flex flex-col w-full max-w-7xl border shadow-lg p-5 lg:p-10">
+        <h1 className="page-title !text-yellow-400">Thần số học theo Tên</h1>
+        <Card className="m-auto flex flex-col w-full max-w-7xl border bg-white/90 dark:bg-slate-500/70 shadow-lg p-5 lg:p-10">
           <CardHeader className="hidden">
             <h2>Thông tin Thần số học của bạn: </h2>
           </CardHeader>
@@ -135,7 +141,7 @@ function NumerologyByName() {
           </div>
 
           <animated.div
-            className="number-description relative w-full p-10 lg:p-12 bg-white/80 dark:bg-slate-500/70 rounded-xl shadow-sm text-lg"
+            className="number-description relative w-full p-5 bg-white/80 dark:bg-slate-500/70 rounded-xl shadow-sm text-lg"
             style={styleDesc}
           >
             <IndexList />

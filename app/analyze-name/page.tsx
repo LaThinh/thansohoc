@@ -67,11 +67,11 @@ function NumerologyByName() {
       <FormInfo name={fullName} birthday={birthday} />
       <div
         className="search-by-name flex flex-col gap-5 p-5 lg:p-10 min-h-[90vh]         
-        bg-[url('/Number-7.jpg')] bg-fixed"
+        bg-[url('/Number-7.jpg')] bg-fixed bg-cover"
         // bg-gradient-to-tr from-rose-400 to-orange-300
       >
         <h1 className="page-title !text-yellow-400">Thần số học theo Tên</h1>
-        <Card className="m-auto flex flex-col w-full max-w-7xl border bg-white/90 dark:bg-slate-500/70 shadow-lg p-5 lg:p-10">
+        <Card className="m-auto flex flex-col w-full max-w-7xl border bg-white/90 dark:bg-slate-500/80 shadow-lg p-5 lg:p-10">
           <CardHeader className="hidden">
             <h2>Thông tin Thần số học của bạn: </h2>
           </CardHeader>
@@ -93,7 +93,7 @@ function NumerologyByName() {
           </CardContent>
         </Card>
         <div className="main-number m-auto w-full max-w-7xl flex flex-col justify-center items-center gap-5">
-          <div className="w-full p-4 lg:p-8 bg-white/80 dark:bg-slate-500/70 rounded-xl shadow-sm text-lg flex gap-5 justify-between flex-col lg:flex-row">
+          <div className="w-full p-4 lg:p-8 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg flex gap-5 justify-between flex-col lg:flex-row">
             <div className="flex flex-col gap-4 justify-center items-center lg:w-1/2">
               <h2 className="text-2xl lg:text-3xl font-bold">
                 Con Số Chủ Đạo Của Bạn
@@ -128,7 +128,7 @@ function NumerologyByName() {
           <div className="number-detail ">
             {!loading && mainNumber?.main_number && (
               <animated.div
-                className="number-description relative w-full p-10 lg:p-12 bg-white/80 dark:bg-slate-500/70 rounded-xl shadow-sm text-lg"
+                className="number-description relative w-full p-10 lg:p-12 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg"
                 style={styleDesc}
               >
                 <h4 className="text-xl lg:text-3xl text-primary font-semibold mb-5">
@@ -141,7 +141,7 @@ function NumerologyByName() {
           </div>
 
           <animated.div
-            className="number-description relative w-full p-5 bg-white/80 dark:bg-slate-500/70 rounded-xl shadow-sm text-lg"
+            className="number-description relative w-full p-5 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg"
             style={styleDesc}
           >
             <IndexList />

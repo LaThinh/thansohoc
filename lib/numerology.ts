@@ -60,7 +60,6 @@ function convertStrToNumber(str: string): number {
   for (let i = 0; i < str.length; i++) {
     result = result + Number(str[i]);
   }
-  console.log(result);
   return result;
 }
 

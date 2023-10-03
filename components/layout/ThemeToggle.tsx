@@ -34,11 +34,11 @@ const themes: { name: string; value: string }[] = [
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [themeCurrent, setThemeCurrent] = useState("theme");
+
   useEffect(() => {
     if (theme) {
       setThemeCurrent(theme);
     }
-    console.log(theme);
   }, []);
 
   const ToggleTheme = () => {

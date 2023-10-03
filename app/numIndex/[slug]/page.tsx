@@ -2,6 +2,7 @@ import React from "react";
 import { NumerologyIndex } from "@/lib/constants";
 import { replaceWithBr, replaceWithP } from "@/lib/utils";
 import IndexList from "@/components/numerology/IndexList";
+import { INumerologyIndex } from "@/app/interfaces";
 
 function findNumerologyBySlug(slug: string) {
   return NumerologyIndex.find((element) => {
@@ -11,6 +12,7 @@ function findNumerologyBySlug(slug: string) {
 
 function NumerologyIndexPage({ params }: { params: { slug: string } }) {
   const NumerologyInfo = findNumerologyBySlug(params.slug);
+
   return (
     <div className="page-wrapper page-numerology-index p-5 lg:p-10">
       <h1 className="page-title">

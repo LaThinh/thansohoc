@@ -1,4 +1,4 @@
-//"use client";
+"use client";
 
 import useLocalStorage from "@/hooks/useLocalStorage";
 import React, { useState } from "react";
@@ -41,24 +41,37 @@ function FormInfo({
   name: string | null;
   birthday: string | null;
 }) {
-  const [fullName, setFullName] = useLocalStorage("fullName", "");
-  const [dateOfBirth, setDateOfBirth] = useLocalStorage("birthday", "");
+  //const [fullName, setFullName] = useLocalStorage("fullName", "");
+  //const [dateOfBirth, setDateOfBirth] = useLocalStorage("birthday", "");
   const [date, setDate] = React.useState<Date>();
   const [editMode, setEditMode] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
+  const [fullName, setFullName] = useState("");
+  //const [dateOfBirth, setDateOfBirth] = useState("");
+
   React.useEffect(() => {
-    if (dateOfBirth) {
+    let localName = localStorage.getItem("fullName") || "";
+    let localBirthday = localStorage.getItem("birthday") || "";
+
+    if (localBirthday) {
       try {
-        const strDate = dateOfBirth.split("-");
+        const strDate = localBirthday.split("-");
         const defaultDate: any = Date.parse(
           strDate[2] + "-" + strDate[1] + "-" + strDate[0]
         );
         setDate(defaultDate);
+        //setDateOfBirth(localBirthday);
+        form.setValue("birthday", defaultDate);
       } catch (e) {
         console.log(e);
       }
+    }
+
+    if (localName) {
+      setFullName(localName);
+      form.setValue("name", localName);
     }
   }, []);
 
@@ -88,11 +101,10 @@ function FormInfo({
   function onSubmit(values: z.infer<typeof formSchema>) {
     // ✅ This will be type-safe and validated.
     values.birthday = date?.toString() ? format(date, "dd-MM-yyyy") : "";
-    console.log(values);
     showToast(values);
+    localStorage.setItem("fullName", values.name);
+    localStorage.setItem("birthday", values.birthday);
 
-    setFullName(values.name);
-    setDateOfBirth(values.birthday);
     setEditMode(!editMode);
     router.replace(
       `/analyze-name?name=${values.name}&birthday=${values.birthday}`
@@ -100,7 +112,7 @@ function FormInfo({
   }
 
   return (
-    <div className="form-info md:sticky top-[64px] py-2 px-5 bg-gray-300 shadow-lg z-[10]">
+    <div className="form-info md:sticky top-[64px] py-2 px-5 bg-gray-300 dark:bg-slate-700 shadow-lg z-[10]">
       <div className="form-info m-auto w-full max-w-[400px] md:max-w-5xl flex gap-5">
         {editMode ? (
           <Form {...form}>

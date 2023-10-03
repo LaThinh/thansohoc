@@ -2,7 +2,7 @@ import moment from 'moment';
 import {DateOfBirth} from "../../dob";
 
 export function extractDob(dateString: string): DateOfBirth | null {
-   const dateObj = moment(dateString, 'YYYY-MM-DD');
+   const dateObj = moment(dateString, 'DD-MM-YYYY');
 
    if (!dateObj.isValid()) {
       return null; // Invalid date, return null

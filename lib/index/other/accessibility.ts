@@ -2,16 +2,16 @@ import { sumDigit } from "@/lib/utils/sumDigit";
 import { alphabetValues, DataVowels } from "@/lib/data/alphabet";
 import { getYValue } from "@/lib/utils/getYValue";
 
-export function approachCompetence(name: string): number {
-    return sumDigit(approachMotivation(name) + approachAttitude(name));
+export function accessibilityCapacity(name: string): number {
+    return sumDigit(accessibilityMotivation(name) + accessibilityAttitude(name));
 }
 
-export function approachMotivation(name: string): number {
+export function accessibilityMotivation(name: string): number {
     const firstName = name.split(/\s+/).slice(-1).shift() || '';
     return calculateTotal(firstName, true);
 }
 
-export function approachAttitude(name: string): number {
+export function accessibilityAttitude(name: string): number {
     const firstName = name.split(/\s+/).slice(-1).shift() || '';
     return calculateTotal(firstName, false);
 }

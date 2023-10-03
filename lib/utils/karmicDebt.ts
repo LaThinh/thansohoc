@@ -9,5 +9,5 @@ export function addKarmicNumber(number: number) {
 
 // Depends on 6 main indexes
 export function getKarmicDebtNumber(): string {
-    return Array.from(karmicDebt.values()).join(', ');
+    return Array.from(karmicDebt.values()).join(',');
 }

@@ -8,5 +8,5 @@ export function maturity(name: string, dobObject: DateOfBirth): number {
 }
 
 export function maturityCapacity(name: string, dobObject: DateOfBirth): number {
-    return sumDigit(lifePath(dobObject) - expression(name) + 9);
+    return sumDigit(Math.abs(lifePath(dobObject) - expression(name)) + 9);
 }

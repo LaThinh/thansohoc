@@ -45,12 +45,12 @@ export function getAllIndexes(name: string, dob: string): INumerologyIndex[] {
    Indexes.set('karmicDebtNumber', getKarmicDebtNumber()); //Export Karmic Debt after calculate 6 main indexes
 
    // Additional Indexes
-   Indexes.set('expressionChallenge', expressionChallenge(name));
-   Indexes.set('soulChallenge', soulChallenge(name));
-   Indexes.set('personalityChallenge', personalityChallenge(name));
+   Indexes.set('expressionChallenge', expressionChallenge(processedName));
+   Indexes.set('soulChallenge', soulChallenge(processedName));
+   Indexes.set('personalityChallenge', personalityChallenge(processedName));
    Indexes.set('adversityResilience', adversityResilience(processedName));
    Indexes.set('thinkingCapacity', thinkingCapacity(dobObj, processedName));
-   Indexes.set('maturity', maturity(name, dobObj));
+   Indexes.set('maturity', maturity(processedName, dobObj));
    Indexes.set('maturityCapacity', maturityCapacity(processedName, dobObj));
    Indexes.set('missingNumber', missingNumber(processedName));
 

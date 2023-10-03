@@ -7,6 +7,6 @@ export function maturity(name: string, dobObject: DateOfBirth): number {
     return sumDigit(lifePath(dobObject) + expression(name), true);
 }
 
-export function maturityChallenge(name: string, dobObject: DateOfBirth): number {
+export function maturityCapacity(name: string, dobObject: DateOfBirth): number {
     return sumDigit(lifePath(dobObject) - expression(name) + 9);
 }

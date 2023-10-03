@@ -13,7 +13,7 @@ export function missingNumber(name: string): string {
     }
 
     const diff = difference(allNumbers, numberInName);
-    return Array.from(diff).join(', ');
+    return Array.from(diff).join(',');
 }
 
 function difference<T>(setA: Set<T>, setB: Set<T>): Set<T> {

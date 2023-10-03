@@ -13,7 +13,7 @@ export function adversityResilience(name: string): number {
    return sumDigit(total);
 }
 
-export function mindset(dobObject: DateOfBirth, name: string): number {
+export function thinkingCapacity(dobObject: DateOfBirth, name: string): number {
    const daySum = sumDigit(dobObject.day, true);
    const lastName = name.split(/\s+/)[0];
    // @ts-ignore

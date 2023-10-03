@@ -4,4 +4,3 @@ export { attitude } from "./attitude";
 export { expression } from "./expression";
 export { personality } from "./personality";
 export { soulUrge } from "./soulUrge";
-export { karmicDebt, getKarmicDebtNumber } from "@/lib/utils/karmicDebt";

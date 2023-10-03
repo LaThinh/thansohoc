@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 function ChartName() {
   return (
@@ -8,7 +7,5 @@ function ChartName() {
     </div>
   );
 }
-
-ChartName.propTypes = {};
 
 export default ChartName;

@@ -16,15 +16,18 @@ function Header() {
     <header className="header sticky top-0 z-50 shadow-sm width-full bg-primary-foreground">
       <div className="header-container max-w-7xl m-auto flex justify-between items-center px-5 h-16">
         <div className="logo">
-          <Link href="/" className="text-xl font-bold">
+          <Link href="/" className="text-xl font-bold flex gap-4 items-center">
             <Image
-              src="/Logo-ThanSoHoc.png"
+              src="/logo.png"
               alt="Thần Số Học"
-              width="240"
+              width="64"
               height="50"
               style={{ objectFit: "cover" }}
               className="max-h[50px] overflow-hidden"
             />
+            <span className="font-pattaya hidden md:block text-xl lg:text-3xl text-primary hover:opacity-80">
+              Thần Số Học
+            </span>
           </Link>
         </div>
         <div className="navigation-menu hidden md:flex">

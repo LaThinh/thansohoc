@@ -82,6 +82,28 @@ export default function Menu() {
 
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-primary-foreground">
+            Biểu Đồ
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <ListItem href="/chart/name" title="Biểu Đồ Họ Tên">
+                Re-usable components built using Radix UI and Tailwind CSS.
+              </ListItem>
+              <ListItem href="/chart/birthday" title="Biểu Đồ Ngày Sinh">
+                How to install dependencies and structure your app.
+              </ListItem>
+              <ListItem href="/chart/name-birthday" title="Biểu Đồ Tổng Hợp">
+                Styles for headings, paragraphs, lists...etc
+              </ListItem>
+              <ListItem href="/chart/pyramid" title="Biểu Đồ Kim Tử Tháp">
+                Styles for headings, paragraphs, lists...etc
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="bg-primary-foreground">
             Thần Số Học
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -103,8 +125,8 @@ export default function Menu() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/analyze-name" title="Xem Các Chỉ Số">
+                Xem các chỉ số theo họ tên và ngày sinh của bạn
               </ListItem>
               <ListItem href="/docs/installation" title="Installation">
                 How to install dependencies and structure your app.
@@ -132,13 +154,14 @@ export default function Menu() {
           </NavigationMenuContent>
         </NavigationMenuItem> */}
 
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Hướng Dẫn Tra Cứu
             </NavigationMenuLink>
           </Link>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
+
         <NavigationMenuItem className="hidden lg:flex">
           <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>

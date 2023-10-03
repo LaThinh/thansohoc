@@ -15,18 +15,16 @@ function NumerologyIndexDetailPage({
 }) {
   const NumerologyInfo = findNumerologyBySlug(params.slug);
   return (
-    <div
-      className="page-wrapper page-numerology-index p-5 lg:p-10
-    bg-[url('/unsplash-01.jpg')]
-    "
-    >
+    <div className="page-wrapper page-numerology-index p-5 lg:p-10">
       <h1 className="page-title">
         Chỉ số {NumerologyInfo?.title_vn} giá trị {params.value}
       </h1>
-      <p>
-        Diễn giải thông tin Chỉ số {NumerologyInfo?.title_vn} giá trị{" "}
-        {params.value}{" "}
-      </p>
+      <div className="main container text-center">
+        <p>
+          Diễn giải thông tin Chỉ số {NumerologyInfo?.title_vn} giá trị{" "}
+          {params.value}{" "}
+        </p>
+      </div>
     </div>
   );
 }

@@ -15,6 +15,14 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+
+    fontFamily: {
+      'fjalla': ['Fjalla One', 'sans-serif'],
+      'great': ['Great Vibes', 'cursive'],
+      'gothic': ['League Gothic', 'sans-serif'],
+      'pattaya': ['Pattaya', 'sans-serif'],
+    },
+
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -52,8 +60,16 @@ module.exports = {
         },
         indexMain: "#be185d",
         indexSecondary: "#0ea5e9",
-        indexOther: "#a8a29e",
+        indexOther: "#78716c",
       },
+
+      fontFamily: {
+        'fjalla': ['Fjalla One', 'sans-serif'],
+        'great': ['Great Vibes', 'cursive'],
+        'gothic': ['League Gothic', 'sans-serif'],
+        'pattaya': ['Pattaya', 'sans-serif'],
+      },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

@@ -79,8 +79,10 @@ function NumerologyByName() {
         bg-[url('/Number-7.jpg')] bg-fixed bg-cover"
         // bg-gradient-to-tr from-rose-400 to-orange-300
       >
-        <h1 className="page-title !text-yellow-400">Thần số học theo Tên</h1>
-        <Card className="m-auto flex flex-col w-full max-w-7xl border bg-white/90 dark:bg-slate-500/80 shadow-lg p-5 lg:p-10">
+        <h1 className="page-title !text-yellow-400 lg:mb-8">
+          Thần số học theo Tên
+        </h1>
+        <Card className="m-auto flex flex-col w-full max-w-[1440px] border bg-white/90 dark:bg-slate-500/80 shadow-lg p-5 lg:p-10">
           <CardHeader className="hidden">
             <h2>Thông tin Thần số học của bạn: </h2>
           </CardHeader>
@@ -101,7 +103,7 @@ function NumerologyByName() {
             </div>
           </CardContent>
         </Card>
-        <div className="main-number m-auto w-full max-w-7xl flex flex-col justify-center items-center gap-5">
+        <div className="main-number m-auto w-full max-w-[1440px] flex flex-col justify-center items-center gap-5">
           <div className="w-full p-4 lg:p-8 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg flex gap-5 justify-between flex-col lg:flex-row">
             <div className="flex flex-col gap-4 justify-center items-center lg:w-1/2">
               <h2 className="text-2xl lg:text-3xl font-bold">
@@ -150,7 +152,7 @@ function NumerologyByName() {
           </div>
 
           <animated.div
-            className="number-description relative w-full p-5 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg"
+            className="number-description relative w-full p-2 lg:p-5 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg"
             style={styleDesc}
           >
             <IndexList indexList={resultIndexs} />

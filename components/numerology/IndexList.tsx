@@ -44,15 +44,15 @@ function IndexList({ indexList }: { indexList?: INumerologyIndex[] }) {
                 <Link
                   href={`/numIndex/${item.name}/${item?.value || item.id}`}
                   className={`index-item rounded-2xl shadow-lg
-                bg-white hover:bg-slate-100 p-5 flex flex-col gap-2 
-                aspect-square box-border items-center text-center border-4 ${borderColor} `}
+                bg-white hover:bg-slate-100 p-3 flex flex-col gap-1 
+                aspect-square box-border items-center justify-between text-center border-4 ${borderColor} `}
                   key={index}
                   title={`Xem chi tiết Chỉ số ${item.title_vn} giá trị ${
                     item?.value || item.id
                   }`}
                 >
                   <h4
-                    className={`text-xl h-14 flex font-semibold text-primary  ${textColor} line-clamp-2 capitalize dark:text-slate-700`}
+                    className={`text-xl max-h-14 flex font-semibold text-primary  ${textColor} line-clamp-2 capitalize dark:text-slate-700`}
                   >
                     {item.title_vn}
                   </h4>
@@ -60,7 +60,7 @@ function IndexList({ indexList }: { indexList?: INumerologyIndex[] }) {
                     {item?.title_en}
                   </h5>
                   <p
-                    className={`text-7xl flex flex-1 items-center justify-center font-bold p-3 ${textColor}`}
+                    className={`text-7xl flex flex-1 items-end justify-center font-bold p-3 ${textColor}`}
                   >
                     {item?.value || item.id}
                   </p>

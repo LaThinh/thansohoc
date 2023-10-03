@@ -1,4 +1,5 @@
 "use client";
+import { getAllIndexes } from "@/api/allIndexes";
 //import FormCard from "@/components/FormCard";
 //import FormInfo from "@/components/FormInfo";
 import NumberAnimation from "@/components/NumberAnimation";
@@ -19,6 +20,7 @@ import { useSpring, animated } from "@react-spring/web";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import React, { memo, useEffect, useState } from "react";
+import { INumerologyIndex } from "../interfaces";
 
 const getDescription = (number: number) => {
   const descFilter = DataSoChuDao.filter((item) => {
@@ -38,6 +40,8 @@ function NumerologyByName() {
   const [loading, setLoading] = useState<boolean>();
   const [mainNumber, setMainNumber] = useState<IMainNumber>();
 
+  const [resultIndexs, setResultIndexes] = useState<INumerologyIndex[]>([]);
+
   const styleDesc = useSpring({
     from: { opacity: 0, top: 100 },
     to: { opacity: 1, top: 0 },
@@ -55,6 +59,11 @@ function NumerologyByName() {
 
     if (birthday && birthday != null) {
       calcNumber(birthday);
+    }
+
+    if (fullName && birthday) {
+      const results = getAllIndexes(fullName, birthday);
+      setResultIndexes(results);
     }
   }, [birthday, loading]);
 
@@ -144,7 +153,16 @@ function NumerologyByName() {
             className="number-description relative w-full p-5 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg"
             style={styleDesc}
           >
-            <IndexList />
+            <IndexList indexList={resultIndexs} />
+          </animated.div>
+
+          <animated.div
+            className="number-description relative w-full p-5 bg-white/80 dark:bg-slate-500/80 rounded-xl shadow-sm text-lg"
+            style={styleDesc}
+          >
+            <h5 className="text-lg lg:text-xl text-primary font-bold flex items-center justify-center p-5">
+              Cảm ơn bạn đã xem. Chúc bạn luôn vui vẻ, hạnh phúc :){" "}
+            </h5>
           </animated.div>
         </div>
       </div>

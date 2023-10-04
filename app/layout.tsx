@@ -46,6 +46,12 @@ export default function RootLayout({
           sizes="512x512"
           href="/android-chrome-512x512.png"
         />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider

@@ -41,6 +41,7 @@ function NumerologyByName() {
   const [mainNumber, setMainNumber] = useState<IMainNumber>();
 
   const [resultIndexs, setResultIndexes] = useState<INumerologyIndex[]>([]);
+  const [bg, setBackground] = useState<string>();
 
   const styleDesc = useSpring({
     from: { opacity: 0, top: 100 },
@@ -65,6 +66,13 @@ function NumerologyByName() {
       const results = getAllIndexes(fullName, birthday);
       setResultIndexes(results);
     }
+
+    if (mainNumber && mainNumber?.main_number)
+      setBackground(
+        mainNumber.main_number < 10
+          ? "/bg/background-0" + mainNumber.main_number + ".png"
+          : "/bg/background-" + mainNumber.main_number + ".png"
+      );
   }, [birthday, loading]);
 
   const FormInfo = dynamic(() => import("@/components/FormInfo"), {
@@ -74,10 +82,10 @@ function NumerologyByName() {
   return (
     <>
       <FormInfo name={fullName} birthday={birthday} />
+      {/* { bg-gradient-to-tr from-rose-400 to-orange-300 } */}
       <div
-        className="search-by-name flex flex-col gap-5 p-5 lg:p-10 min-h-[90vh]         
-        bg-[url('/Number-7.jpg')] bg-fixed bg-cover"
-        // bg-gradient-to-tr from-rose-400 to-orange-300
+        className={`search-by-name flex flex-col gap-5 p-5 lg:p-10 min-h-[90vh] bg-center bg-fixed	 bg-cover`}
+        style={{ backgroundImage: `url(${bg})` }}
       >
         <h1 className="page-title !text-yellow-400 lg:mb-8">
           Thần số học theo Tên
